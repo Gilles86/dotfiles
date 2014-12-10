@@ -5,20 +5,37 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+
+"--------------
+"" basic settings
+"--------------
 set nobackup                        " enable backups
 set noswapfile                    " it's 2013, Vim.
 set nocompatible
 
+set mouse=a
+
 syntax enable
-set background=dark
-" solarized options 
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+
+"--------------
+"" Solarized color scheme
+"--------------
+if !has("gui_running")
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+endif
+
 colorscheme solarized
-let g:solarized_termcolors=16
+set background=dark
 
-set clipboard=unnamedplus
+"--------------
+"" Clipboard settings
+"--------------
+set clipboard=unnamed
 
+"--------------
+"" Keyboard shortcuts
+"--------------
 map <C-n> :NERDTreeToggle<CR>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
