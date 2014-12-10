@@ -4,6 +4,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
+    ~/.oh-my-zsh: oh-my-zsh
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim/
     ~/.vimrc: vimrc
@@ -11,4 +12,4 @@
     ~/.zshrc: zshrc
 
 - shell:
-  - [git submodule update, Installing/updating submodules]
+  - [git submodule update --init --recursive, Installing/updating submodules]
