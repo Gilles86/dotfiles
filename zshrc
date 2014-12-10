@@ -1,3 +1,8 @@
+# Allow local customizations in the ~/.zshrc_local_before file
+if [ -f ~/.zshrc_local_before ]; then
+    source ~/.zshrc_local_before
+fi
+
 # oh-my-zsh
 ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
@@ -13,3 +18,8 @@ source ~/.zsh/aliases.zsh
 
 # Environment variables
 source ~/.zsh/zshenv.zsh
+
+# Allow local customizations in the ~/.zshrc_local_after file
+if [ -f ~/.zshrc_local_after ]; then
+    source ~/.zshrc_local_after
+fi
