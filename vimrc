@@ -12,9 +12,9 @@ call pathogen#helptags()
 set nobackup                        " enable backups
 set noswapfile                    " it's 2013, Vim.
 set nocompatible
-
 set mouse=a
 
+filetype plugin on
 syntax enable
 
 "--------------

@@ -1,2 +1,1 @@
-bindkey '^R' history-incremental-search-backward
-_
+bindkey '^r' history-incremental-search-backward
