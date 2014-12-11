@@ -31,7 +31,7 @@ set background=dark
 "--------------
 "" Clipboard settings
 "--------------
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 "--------------
 "" Keyboard shortcuts
