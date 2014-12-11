@@ -1,9 +1,17 @@
-# Use colors in coreutils utilities output
-# alias ls='ls --color=auto'
-# export GREP_OPTIONS="--color"
-#
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 # ls aliases
-alias ll='ls -la'
+alias ll='ls -alFrth'
 alias la='ls -A'
 alias l='ls'
 #
@@ -20,3 +28,4 @@ alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
+alias c='fasd_cd -d'
