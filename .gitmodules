@@ -16,6 +16,3 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "bin/fasd"]
-	path = bin/fasd
-	url = https://github.com/clvv/fasd
