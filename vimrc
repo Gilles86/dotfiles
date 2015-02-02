@@ -16,6 +16,7 @@ set mouse=a
 
 filetype plugin on
 syntax enable
+filetype indent plugin on
 
 "--------------
 "" Solarized color scheme
@@ -31,7 +32,7 @@ set background=dark
 "--------------
 "" Clipboard settings
 "--------------
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 "--------------
 "" Keyboard shortcuts
