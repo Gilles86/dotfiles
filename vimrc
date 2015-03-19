@@ -38,6 +38,7 @@ set clipboard=unnamed
 "" Keyboard shortcuts
 "--------------
 map <C-n> :NERDTreeToggle<CR>
+nmap <leader>G :Goyo<CR>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
