@@ -15,6 +15,7 @@ set nocompatible
 set mouse=a
 
 filetype plugin on
+filetype plugin indent on
 syntax enable
 filetype indent plugin on
 
