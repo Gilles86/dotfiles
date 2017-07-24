@@ -22,6 +22,9 @@ source ~/.zsh/zshenv.zsh
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
+# fsl:
+source ~/.zsh/fsl.zsh
+
 # Allow local customizations in the ~/.zshrc_local_after file
 if [ -f ~/.zshrc_local_after ]; then
     source ~/.zshrc_local_after
