@@ -29,3 +29,29 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 alias c='fasd_cd -d'
+
+# Mount Aeneas
+alias re=' umount ~/aeneas/data &
+sshfs -p 22 aeneas:/home/hollander/data ~/aeneas/data/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=home &
+umount ~/aeneas/fs_subjects &
+sshfs -p 22 aeneas:/home/fs_subjects ~/aeneas/fs_subjects/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=fs_subjects &
+umount ~/aeneas/raw_data &
+sshfs -p 22 aeneas:/home/raw_data ~/aeneas/raw_data/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=raw_data &
+umount ~/aeneas/shared &
+sshfs -p 22 aeneas:/home/shared ~/aeneas/shared/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=shared &
+umount ~/aeneas/workflow_folders &
+sshfs -p 22 aeneas:/tmp/workflow_folders ~/aeneas/workflow_folders/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=workflow_folders &'
+
+alias fslview="/Applications/FSLeyes.app/Contents/MacOS/fsleyes"
+
+
+alias fsl5.0-bet='bet'
+
+
+# Dockers
+alias 7t_hires="docker run -p 8888:8888 -it \
+	 	-d \
+        	-v /Users/Gilles/data/hires:/data \
+		-v /Users/gilles/Dropbox/Science/7t_binocular/hires_ODC_7T/src:/home/neuro/src \
+		-v /Users/gilles/Dropbox/Science/7t_binocular/hires_ODC_7T/notebooks:/home/neuro/notebooks \
+		knapenlab/hiresbinocularrivalry"

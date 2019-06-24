@@ -53,6 +53,9 @@ map  ,n :tabnew<CR>
 "Close tab
 map ,w :tabclose<CR>
 
+" Use jj instead of Esc (because of new MacBook Pro)
+imap jj <Esc>
+
 "--------------
 "" Buffer shortcuts
 "--------------
@@ -84,3 +87,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endi
+
+
+autocmd FileType python setlocal completeopt-=preview
