@@ -34,14 +34,16 @@ alias blender=/Applications/Blender/blender.app/Contents/MacOS/blender
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/gilles/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/gdehol/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/gilles/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/gilles/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/gdehol/miniconda3/etc/profile.d/conda.sh" ]; then
+# . "/Users/gilles/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
-        export PATH="/Users/gilles/miniconda3/bin:$PATH"
+# export PATH="/Users/gilles/miniconda3/bin:$PATH"  # commented out by conda initialize
     fi
 fi
 unset __conda_setup
+
+DEFAULT_USER=$(whoami)

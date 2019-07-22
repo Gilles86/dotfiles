@@ -1,10 +1,19 @@
 "--------------
-"" Load pathogen
+"" Install plugins
 "--------------
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'micha/vim-colors-solarized'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'FooSoft/vim-argwrap'
+call plug#end()
 
 "--------------
 "" basic settings
@@ -18,14 +27,6 @@ filetype plugin on
 filetype plugin indent on
 syntax enable
 filetype indent plugin on
-
-"--------------
-"" Solarized color scheme
-"--------------
-if !has("gui_running")
-    let g:solarized_termtrans=1
-    let g:solarized_termcolors=256
-endif
 
 colorscheme solarized
 set background=dark
@@ -63,12 +64,11 @@ imap jj <Esc>
 " This replaces :tabnew which I used to bind to this mapping
 
 " Enable the list of buffers
+" ALE
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8']}
+
+" Airline
 let g:airline#extensions#tabline#enabled = 1
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-
 " My preference with using buffers. See `:h hidden` for more details
 set hidden
 nmap <leader>T :enew<cr>
