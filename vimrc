@@ -65,7 +65,7 @@ imap jj <Esc>
 
 " Enable the list of buffers
 " ALE
-let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8', 'prettier'], 'json': ['prettier']}
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1

@@ -3,6 +3,8 @@ if [ -f ~/.zshrc_local_before ]; then
     source ~/.zshrc_local_before
 fi
 
+export TERM="xterm-256color"
+
 # oh-my-zsh
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -41,6 +43,7 @@ __conda_setup="$('/Users/gdehol/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
+<<<<<<< HEAD
     if [ -f "/Users/gdehol/miniconda3/etc/profile.d/conda.sh" ]; then
         . "/Users/gdehol/miniconda3/etc/profile.d/conda.sh"
     else
@@ -50,3 +53,16 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+=======
+    if [ -f "/Users/gilles/miniconda3/etc/profile.d/conda.sh" ]; then
+# . "/Users/gilles/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+    else
+# export PATH="/Users/gilles/miniconda3/bin:$PATH"  # commented out by conda initialize
+    fi
+fi
+unset __conda_setup
+
+if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+>>>>>>> d11731fc724a2499634608747bece24e13449439

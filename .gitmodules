@@ -30,7 +30,16 @@
 	url = https://github.com/junegunn/goyo.vim
 [submodule "vim/bundle/ale"]
 	path = vim/bundle/ale
-	url = https://github.com/w0rp/ale
+	url = https://github.com/dense-analysis/ale
 [submodule "vim/bundle/fzf.vim"]
 	path = vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/bundle/jedi-vim"]
+	path = vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/bundle/vim-autopep8"]
+	path = vim/bundle/vim-autopep8
+	url = https://github.com/tell-k/vim-autopep8
