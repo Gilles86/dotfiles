@@ -42,7 +42,7 @@ sshfs -p 22 aeneas:/home/shared ~/aeneas/shared/ -oauto_cache,reconnect,defer_pe
 umount ~/aeneas/workflow_folders &
 sshfs -p 22 aeneas:/tmp/workflow_folders ~/aeneas/workflow_folders/ -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=workflow_folders &'
 
-alias fslview="/Applications/FSLeyes.app/Contents/MacOS/fsleyes"
+alias fslview="fsleyes"
 
 
 alias fsl5.0-bet='bet'
@@ -55,3 +55,6 @@ alias 7t_hires="docker run -p 8888:8888 -it \
 		-v /Users/gilles/Dropbox/Science/7t_binocular/hires_ODC_7T/src:/home/neuro/src \
 		-v /Users/gilles/Dropbox/Science/7t_binocular/hires_ODC_7T/notebooks:/home/neuro/notebooks \
 		knapenlab/hiresbinocularrivalry"
+
+
+alias rsync_='rsync -aHxv --numeric-ids --progress -e "ssh -T -o Compression=no -x"'

@@ -10,4 +10,3 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 export DATA_DIR="/data"
 
-
