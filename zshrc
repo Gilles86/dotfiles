@@ -9,7 +9,7 @@ export TERM="xterm-256color"
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git fasd vi-mode dircycle dirhistory dirpersist history-substring-search common-aliases tmux zsh-apple-touchbar)
+plugins=(git fasd vi-mode dircycle dirhistory dirpersist history-substring-search common-aliases tmux zsh-apple-touchbar zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 ## UTF encoding

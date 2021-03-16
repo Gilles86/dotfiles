@@ -8,5 +8,5 @@ export FREESURFER_HOME=$HOME/freesurfer
 export FS_LICENSE=$FREESURFER_HOME/license.txt
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
-export DATA_DIR="/data"
+export DATA_DIR="/data2"
 
