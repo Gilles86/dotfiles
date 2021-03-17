@@ -10,6 +10,7 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [vim +PlugInstall +qall , Installing Vim plugins]
   - [curl -L git.io/antigen > zsh/antigen.zsh, installing antigen]
+  - [zsh install_autojump.sh]
 
 - link:
     ~/.tmux.conf: tmux.conf

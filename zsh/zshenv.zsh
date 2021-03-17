@@ -2,6 +2,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texb
 export PATH="$HOME/ants/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
+export PATH="$HOME/.autojump/bin:$PATH"
 export ANTSPATH="/Users/gilles/ants/bin"
 
 #export FREESURFER_HOME=$HOME/freesurfer

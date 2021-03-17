@@ -5,6 +5,9 @@ antigen use oh-my-zsh
 #
 # # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
+antigen bundle autojump
+antigen bundle autosuggestions
+antigen bundle enhancd
 antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
