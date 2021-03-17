@@ -4,9 +4,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
 export ANTSPATH="/Users/gilles/ants/bin"
 
-export FREESURFER_HOME=$HOME/freesurfer
-export FS_LICENSE=$FREESURFER_HOME/license.txt
-source $FREESURFER_HOME/SetUpFreeSurfer.sh
+#export FREESURFER_HOME=$HOME/freesurfer
+#export FS_LICENSE=$FREESURFER_HOME/license.txt
+#source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 export DATA_DIR="/data2"
 

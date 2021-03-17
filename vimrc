@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'pangloss/vim-javascript'
+Plug 'vim-python/python-syntax'
 call plug#end()
 
 "--------------
