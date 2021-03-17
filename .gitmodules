@@ -1,9 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule ".dotbot"]
-	path = .dotbot
-	url = https://github.com/anishathalye/dotbot
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
@@ -43,3 +40,7 @@
 [submodule "vim/bundle/vim-autopep8"]
 	path = vim/bundle/vim-autopep8
 	url = https://github.com/tell-k/vim-autopep8
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
