@@ -1,4 +1,4 @@
-# dotfiles
+# Gilles' dotfiles
 These are my global configuration files. They are mostly setting up 
  * zsh + oh-my-zsh
  * tmux
