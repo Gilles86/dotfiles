@@ -1,5 +1,6 @@
 source ~/.zsh/antigen.zsh
 source ~/.zsh/powerlevel10k.zsh
+export TERM="xterm-256color"
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -32,7 +33,6 @@ if [ -f ~/.zshrc_local_before ]; then
     source ~/.zshrc_local_before
 fi
 
-export TERM="xterm-256color"
 
 # oh-my-zsh
 #plugins=(git fasd vi-mode dircycle dirhistory dirpersist history-substring-search common-aliases tmux zsh-apple-touchbar zsh-autosuggestions)
