@@ -16,7 +16,6 @@ antigen bundle command-not-found
 antigen bundle zsh-autosuggestions
 antigen bundle vi-mode
 antigen bundle common-aliases
-#antigen bundle clvv/fasd fasd
 antigen bundle fasd
 
 ##
