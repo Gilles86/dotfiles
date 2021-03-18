@@ -53,6 +53,9 @@ source ~/.zsh/conda.zsh
 
 # Key bindings
 source ~/.zsh/key_bindings.zsh
+#
+# Functions
+source ~/.zsh/functions.zsh
 
 # Allow local customizations in the ~/.zshrc_local_after file
 if [ -f ~/.zsh/local_after.zsh ]; then
