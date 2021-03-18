@@ -1,7 +1,7 @@
+export CONDA_DIR="$HOME/miniconda3"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
 export PATH="$HOME/ants/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="$HOME/.autojump/bin:$PATH"
 export ANTSPATH="/Users/gilles/ants/bin"
 

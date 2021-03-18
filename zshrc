@@ -48,6 +48,9 @@ source ~/.zsh/aliases.zsh
 # Environment variables
 source ~/.zsh/zshenv.zsh
 
+# Conda
+source ~/.zsh/conda.zsh
+
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
