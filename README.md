@@ -11,4 +11,6 @@ To install, just go to the root of this folder and run
 ./install 
 ```
 
+
+It should look something like this:
 ![Alt text](screenshots/myzsh.png?raw=true "Title")
