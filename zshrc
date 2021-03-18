@@ -55,3 +55,5 @@ source ~/.zsh/key_bindings.zsh
 if [ -f ~/.zsh/local_after.zsh ]; then
     source ~/.zsh/local_after.zsh
 fi
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
