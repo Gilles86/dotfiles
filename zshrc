@@ -1,4 +1,5 @@
 source ~/.zsh/antigen.zsh
+source ~/.zsh/powerlevel10k.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -23,7 +24,7 @@ antigen bundle fasd
 antigen bundle zsh-users/zsh-syntax-highlighting
 #
 # # Load the theme.
-antigen theme powerlevel9k/powerlevel9k
+antigen theme romkatv/powerlevel10k
 #
 # # Tell Antigen that you're done.
 antigen apply
