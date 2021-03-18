@@ -10,3 +10,5 @@ To install, just go to the root of this folder and run
 ```
 ./install 
 ```
+
+![Alt text](screenshots/myzsh.png?raw=true "Title")
