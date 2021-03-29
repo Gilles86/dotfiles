@@ -33,6 +33,8 @@ filetype indent plugin on
 colorscheme solarized
 set background=dark
 
+set expandtab
+
 "--------------
 "" Clipboard settings
 "--------------
