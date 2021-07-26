@@ -1,7 +1,5 @@
-source ~/.zsh/antigen.zsh
-# Environment variables
-source ~/.zsh/zshenv.zsh
 source ~/.zsh/powerlevel10k.zsh
+source ~/.zsh/antigen.zsh
 
 export TERM="xterm-256color"
 
@@ -36,6 +34,8 @@ if [ -f ~/.zshrc_local_before ]; then
     source ~/.zshrc_local_before
 fi
 
+# Environment variables
+source ~/.zsh/zshenv.zsh
 
 # oh-my-zsh
 #plugins=(git fasd vi-mode dircycle dirhistory dirpersist history-substring-search common-aliases tmux zsh-apple-touchbar zsh-autosuggestions)
