@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 "--------------
@@ -69,7 +70,7 @@ imap jj <Esc>
 
 " Enable the list of buffers
 " ALE
-let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8', 'prettier'], 'json': ['prettier'], 'javacript':['prettier']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8', 'prettier'], 'json': ['prettier'], 'javacript':['prettier'], 'html':['prettier']}
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
