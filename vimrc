@@ -4,7 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'micha/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'editorconfig/editorconfig-vim'

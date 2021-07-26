@@ -16,4 +16,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
     ~/.vimrc: vimrc
+    ~/.zsh: zsh
+    ~/.zshrc: zshrc
     ~/.p10k.zsh: p10krc
