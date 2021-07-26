@@ -1,5 +1,8 @@
 source ~/.zsh/antigen.zsh
+# Environment variables
+source ~/.zsh/zshenv.zsh
 source ~/.zsh/powerlevel10k.zsh
+
 export TERM="xterm-256color"
 
 # Load the oh-my-zsh's library.
@@ -42,11 +45,13 @@ fi
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL" 
 
+
 # Aliases
 source ~/.zsh/aliases.zsh
 
-# Environment variables
-source ~/.zsh/zshenv.zsh
+#
+# FSL
+source ~/.zsh/fsl.zsh
 
 # Conda
 source ~/.zsh/conda.zsh
@@ -62,4 +67,20 @@ if [ -f ~/.zsh/local_after.zsh ]; then
     source ~/.zsh/local_after.zsh
 fi
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# auto-inserted by @update.afni.binaries :
+export PATH=$PATH:/Users/gdehol/abin
+
+# auto-inserted by @update.afni.binaries :
+export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
+
+# auto-inserted by @update.afni.binaries :
+#    set up tab completion for AFNI programs
+if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
+then
+   autoload -U +X bashcompinit && bashcompinit
+   autoload -U +X compinit && compinit \
+      && source $HOME/.afni/help/all_progs.COMP.zsh
+fi
+
+
