@@ -1,6 +1,6 @@
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-export CONDA_DIR="$HOME/miniconda3"
+export CONDA_DIR="/data/gdehol/miniforge3"
 __conda_setup="$($CONDA_DIR/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"

@@ -7,7 +7,7 @@ export ANTSPATH="/Users/gilles/ants/bin"
 
 export FREESURFER_HOME=$HOME/freesurfer
 export FS_LICENSE=$FREESURFER_HOME/license.txt
-source $FREESURFER_HOME/SetUpFreeSurfer.sh >/dev/null
+#source $FREESURFER_HOME/SetUpFreeSurfer.sh >/dev/null
 
 export DATA_DIR="/data"
 

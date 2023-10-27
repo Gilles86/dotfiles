@@ -51,7 +51,7 @@ source ~/.zsh/aliases.zsh
 
 #
 # FSL
-source ~/.zsh/fsl.zsh
+#source ~/.zsh/fsl.zsh
 
 # Conda
 source ~/.zsh/conda.zsh
