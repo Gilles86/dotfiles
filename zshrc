@@ -38,10 +38,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light romkatv/powerlevel10k
 
 
-## Allow local customizations in ~/.zshrc_local
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
+
 
 # Environment variables
 source ~/.zsh/zshenv.zsh
@@ -85,3 +82,8 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Allow local customizations in ~/.zshrc_local (must be last for cluster env)
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
