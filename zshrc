@@ -1,12 +1,9 @@
-
-
 # Enable Powerlevel10k instant prompt as early as possible
 source ~/.zsh/powerlevel10k.zsh
 
 
 # Source conda.zsh at the end for typical conda init placement
 source ~/.zsh/conda.zsh
-
 
 
 # --- Zinit Plugin Manager ---
@@ -36,12 +33,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light romkatv/powerlevel10k
 
 
-# Allow local customizations in ~/.zsh/local_before.zsh and ~/.zshrc_local_before
-if [ -f ~/.zsh/local_before.zsh ]; then
-    source ~/.zsh/local_before.zsh
-fi
-if [ -f ~/.zshrc_local_before ]; then
-    source ~/.zshrc_local_before
+## Allow local customizations in ~/.zshrc_local
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
 fi
 
 # Environment variables
@@ -62,10 +56,6 @@ source ~/.zsh/key_bindings.zsh
 #
 
 
-# Allow local customizations in .zsh/local.sh
-if [ -f ~/.zsh/local.zsh ]; then
-    source ~/.zsh/local.zsh
-fi
 
 
 # auto-inserted by @update.afni.binaries :
