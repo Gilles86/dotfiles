@@ -1,3 +1,8 @@
+## Zsh history configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
 # Enable Powerlevel10k instant prompt as early as possible
 source ~/.zsh/powerlevel10k.zsh
 
