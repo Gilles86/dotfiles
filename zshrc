@@ -25,11 +25,8 @@ export TERM="xterm-256color"
 zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
 zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 # Other plugins
-zinit light wting/autojump
 zinit light zsh-users/zsh-autosuggestions
 zinit light b4b4r07/enhancd
-zinit light heroku/heroku
-zinit light pypa/pip
 zinit light technomancy/leiningen
 # command-not-found is not a standalone repo; skip or use system package if needed
 zinit light jeffreytse/zsh-vi-mode
