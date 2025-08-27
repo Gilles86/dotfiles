@@ -38,7 +38,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 # Powerlevel10k theme
 zinit light romkatv/powerlevel10k
 
-# Allow local customizations in the ~/.zshrc_local_before file
+
+# Allow local customizations in ~/.zsh/local_before.zsh and ~/.zshrc_local_before
+if [ -f ~/.zsh/local_before.zsh ]; then
+    source ~/.zsh/local_before.zsh
+fi
 if [ -f ~/.zshrc_local_before ]; then
     source ~/.zshrc_local_before
 fi
@@ -55,19 +59,15 @@ export LANG="$LC_ALL"
 # Aliases
 source ~/.zsh/aliases.zsh
 
-#
-# FSL
-source ~/.zsh/fsl.zsh
-
-
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
 #
 
-# Allow local customizations in the ~/.zshrc_local_after file
-if [ -f ~/.zsh/local_after.zsh ]; then
-    source ~/.zsh/local_after.zsh
+
+# Allow local customizations in .zsh/local.sh
+if [ -f ~/.zsh/local.zsh ]; then
+    source ~/.zsh/local.zsh
 fi
 
 
