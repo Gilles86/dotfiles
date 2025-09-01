@@ -43,7 +43,6 @@ zinit light romkatv/powerlevel10k
 # Environment variables
 source ~/.zsh/zshenv.zsh
 
-
 ## UTF encoding
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL" 
@@ -82,6 +81,9 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Prepend ~/.local/bin to PATH for highest priority
+export PATH="$HOME/.local/bin:$PATH"
 
 # Allow local customizations in ~/.zshrc_local (must be last for cluster env)
 if [ -f ~/.zshrc_local ]; then
