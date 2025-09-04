@@ -1,6 +1,5 @@
-
 # Start with system default PATH, then prepend only needed user directories
-export PATH="$HOME/ants/bin:$HOME/.local/bin:$HOME/.autojump/bin:$HOME/afni:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+export PATH="$HOME/ants/bin:$HOME/.local/bin:$HOME/.autojump/bin:$HOME/afni:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 export ANTSPATH="$HOME/ants/bin"
 
 

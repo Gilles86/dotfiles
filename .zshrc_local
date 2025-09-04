@@ -1,0 +1,6 @@
+# FSL setup: source if installed (must be last to ensure PATH is correct)
+if [ -d /usr/local/fsl ]; then
+    source "$HOME/git/dotfiles/zsh/fsl.zsh"
+    # Re-export FSLDIR/bin to PATH in case it was overwritten
+    export PATH="$FSLDIR/bin:$PATH"
+fi
