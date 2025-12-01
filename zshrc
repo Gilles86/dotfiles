@@ -12,11 +12,6 @@ setopt hist_reduce_blanks
 # Enable Powerlevel10k instant prompt as early as possible
 source ~/.zsh/powerlevel10k.zsh
 
-
-# Source conda.zsh at the end for typical conda init placement
-source ~/.zsh/conda.zsh
-
-
 # --- Zinit Plugin Manager ---
 # Install zinit if not present
 if [[ ! -f ${ZDOTDIR:-$HOME}/.zinit/bin/zinit.zsh ]]; then
@@ -29,18 +24,25 @@ export TERM="xterm-256color"
 
 # Load the oh-my-zsh's library.
 # --- Plugins (converted from Antigen, fixed for zinit) ---
+# Use turbo mode (wait'0') to defer plugin loading for faster startup
 # Oh My Zsh plugins: use zinit snippet to source plugin scripts directly
-zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
-zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
-# Other plugins
-zinit light zsh-users/zsh-autosuggestions
-zinit light b4b4r07/enhancd
-zinit light technomancy/leiningen
-# command-not-found is not a standalone repo; skip or use system package if needed
-zinit light jeffreytse/zsh-vi-mode
+zinit wait lucid for \
+  OMZP::git \
+  OMZP::common-aliases
+
+# Other plugins with turbo mode
+zinit wait lucid light-mode for \
+  zsh-users/zsh-autosuggestions \
+  b4b4r07/enhancd
+
+zinit wait lucid light-mode for \
+  jeffreytse/zsh-vi-mode
+
 # Place zsh-syntax-highlighting LAST for best performance
-zinit light zsh-users/zsh-syntax-highlighting
-# Powerlevel10k theme
+zinit wait lucid light-mode for \
+  zsh-users/zsh-syntax-highlighting
+
+# Powerlevel10k theme (load immediately, not in turbo mode)
 zinit light romkatv/powerlevel10k
 
 
@@ -72,12 +74,11 @@ export PATH=$PATH:/Users/gdehol/abin
 export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
 
 # auto-inserted by @update.afni.binaries :
-#    set up tab completion for AFNI programs
-if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
-then
-   autoload -U +X bashcompinit && bashcompinit
-   autoload -U +X compinit && compinit \
-      && source $HOME/.afni/help/all_progs.COMP.zsh
+#    set up tab completion for AFNI programs (deferred for faster startup)
+if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]; then
+   # Defer completion loading
+   zinit wait lucid atload'autoload -U +X bashcompinit && bashcompinit' for \
+     $HOME/.afni/help/all_progs.COMP.zsh
 fi
 
 
@@ -86,12 +87,27 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# Lazy-load rbenv only when ruby/rbenv commands are used
+if which rbenv > /dev/null 2>&1; then
+  rbenv() {
+    unfunction rbenv
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+  }
+fi
 
 # Prepend ~/.local/bin to PATH for highest priority
 export PATH="$HOME/.local/bin:$PATH"
+
+# Source conda.zsh for conda initialization
+source ~/.zsh/conda.zsh
 
 # Allow local customizations in ~/.zshrc_local (must be last for cluster env)
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+# >>> conda initialize >>>
+# Conda is now initialized via ~/.zsh/conda.zsh
+# <<< conda initialize <<<
+
