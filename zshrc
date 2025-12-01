@@ -35,14 +35,18 @@ zinit wait lucid for \
   OMZP::common-aliases
 
 # Other plugins with turbo mode
-# To disable enhancd on slow systems, add to ~/.zshrc_local: export DISABLE_ENHANCD=1
 zinit wait lucid light-mode for \
   zsh-users/zsh-autosuggestions \
   zsh-users/zsh-history-substring-search
 
-# Load enhancd only if not disabled
-if [[ -z "$DISABLE_ENHANCD" ]]; then
-  zinit wait lucid light-mode for b4b4r07/enhancd
+# fzf-tab: fuzzy search for ALL tab completions (must load before compinit runs)
+zinit light Aloxaf/fzf-tab
+
+# Initialize zoxide (smart cd replacement) if installed
+# Use 'z' for jump and 'zz' for interactive (zi conflicts with zinit)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd cd)"
+  alias zz='__zoxide_zi'
 fi
 
 # Configure vi-mode before loading to preserve Tab completion
