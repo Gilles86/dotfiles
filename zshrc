@@ -42,7 +42,8 @@ zinit wait lucid for \
 # Other plugins with turbo mode
 # To disable enhancd on slow systems, add to ~/.zshrc_local: export DISABLE_ENHANCD=1
 zinit wait lucid light-mode for \
-  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-history-substring-search
 
 # Load enhancd only if not disabled
 if [[ -z "$DISABLE_ENHANCD" ]]; then
@@ -75,6 +76,10 @@ source ~/.zsh/aliases.zsh
 
 # Key bindings
 source ~/.zsh/key_bindings.zsh
+
+# Bind up/down arrows for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 #
 
