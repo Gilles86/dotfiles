@@ -87,6 +87,12 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
+# Fallback keybindings for history-substring-search (in case vi-mode doesn't load)
+if (( $+functions[history-substring-search-up] )); then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
+
 #
 
 
