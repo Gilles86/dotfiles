@@ -22,6 +22,15 @@ source ~/.zinit/bin/zinit.zsh
 
 export TERM="xterm-256color"
 
+# Initialize completion system early
+autoload -Uz compinit
+# Speed up by only checking cache once a day
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 # Load the oh-my-zsh's library.
 # --- Plugins (converted from Antigen, fixed for zinit) ---
 # Use turbo mode (wait'0') to defer plugin loading for faster startup
@@ -31,9 +40,14 @@ zinit wait lucid for \
   OMZP::common-aliases
 
 # Other plugins with turbo mode
+# To disable enhancd on slow systems, add to ~/.zshrc_local: export DISABLE_ENHANCD=1
 zinit wait lucid light-mode for \
-  zsh-users/zsh-autosuggestions \
-  b4b4r07/enhancd
+  zsh-users/zsh-autosuggestions
+
+# Load enhancd only if not disabled
+if [[ -z "$DISABLE_ENHANCD" ]]; then
+  zinit wait lucid light-mode for b4b4r07/enhancd
+fi
 
 zinit wait lucid light-mode for \
   jeffreytse/zsh-vi-mode
