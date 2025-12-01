@@ -22,14 +22,8 @@ source ~/.zinit/bin/zinit.zsh
 
 export TERM="xterm-256color"
 
-# Initialize completion system early
-autoload -Uz compinit
-# Speed up by only checking cache once a day
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
-fi
+# Initialize completion system
+autoload -Uz compinit && compinit
 
 # Load the oh-my-zsh's library.
 # --- Plugins (converted from Antigen, fixed for zinit) ---
@@ -42,23 +36,16 @@ zinit wait lucid for \
 # Other plugins with turbo mode
 # To disable enhancd on slow systems, add to ~/.zshrc_local: export DISABLE_ENHANCD=1
 zinit wait lucid light-mode for \
-  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-history-substring-search
 
 # Load enhancd only if not disabled
 if [[ -z "$DISABLE_ENHANCD" ]]; then
   zinit wait lucid light-mode for b4b4r07/enhancd
 fi
 
-# Load vi-mode plugin with proper initialization callback
-zinit wait lucid light-mode for \
-  atload'zvm_after_init() { 
-    zinit light zsh-users/zsh-history-substring-search
-    bindkey "^[[A" history-substring-search-up
-    bindkey "^[[B" history-substring-search-down
-    bindkey -M vicmd "k" history-substring-search-up
-    bindkey -M vicmd "j" history-substring-search-down
-  }' \
-  jeffreytse/zsh-vi-mode
+# Vi-mode causes Tab completion issues - disabled by default
+# To enable, add to ~/.zshrc_local: zinit wait lucid light-mode for jeffreytse/zsh-vi-mode
 
 # Place zsh-syntax-highlighting LAST for best performance
 zinit wait lucid light-mode for \
@@ -81,17 +68,8 @@ export LANG="$LC_ALL"
 # Aliases
 source ~/.zsh/aliases.zsh
 
-# Configure history-substring-search
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-
 # Key bindings
 source ~/.zsh/key_bindings.zsh
-
-# Fallback keybindings for history-substring-search (in case vi-mode doesn't load)
-if (( $+functions[history-substring-search-up] )); then
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
 
 #
 
