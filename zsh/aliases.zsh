@@ -15,8 +15,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# ls aliases
-alias ll='ls -alFrth'
+# ls aliases (cross‑platform)
+# Show long list, almost-all, classify, human sizes, sort by time, reverse (latest last)
+alias ll='ls -AlFhtr'
 alias la='ls -A'
 alias l='ls'
 #
