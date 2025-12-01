@@ -42,15 +42,22 @@ zinit wait lucid for \
 # Other plugins with turbo mode
 # To disable enhancd on slow systems, add to ~/.zshrc_local: export DISABLE_ENHANCD=1
 zinit wait lucid light-mode for \
-  zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-autosuggestions
 
 # Load enhancd only if not disabled
 if [[ -z "$DISABLE_ENHANCD" ]]; then
   zinit wait lucid light-mode for b4b4r07/enhancd
 fi
 
+# Load vi-mode plugin with proper initialization callback
 zinit wait lucid light-mode for \
+  atload'zvm_after_init() { 
+    zinit light zsh-users/zsh-history-substring-search
+    bindkey "^[[A" history-substring-search-up
+    bindkey "^[[B" history-substring-search-down
+    bindkey -M vicmd "k" history-substring-search-up
+    bindkey -M vicmd "j" history-substring-search-down
+  }' \
   jeffreytse/zsh-vi-mode
 
 # Place zsh-syntax-highlighting LAST for best performance
@@ -74,18 +81,11 @@ export LANG="$LC_ALL"
 # Aliases
 source ~/.zsh/aliases.zsh
 
-# Key bindings
-source ~/.zsh/key_bindings.zsh
-
-# Configure history-substring-search to skip multi-line navigation
+# Configure history-substring-search
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
-# Bind up/down arrows for history substring search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-# Also bind for vi mode
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# Key bindings
+source ~/.zsh/key_bindings.zsh
 
 #
 
