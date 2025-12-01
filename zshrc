@@ -22,8 +22,9 @@ source ~/.zinit/bin/zinit.zsh
 
 export TERM="xterm-256color"
 
-# Initialize completion system
-autoload -Uz compinit && compinit
+# Initialize completion system early (must be before zinit plugins)
+autoload -Uz compinit
+compinit
 
 # Load the oh-my-zsh's library.
 # --- Plugins (converted from Antigen, fixed for zinit) ---
@@ -44,8 +45,11 @@ if [[ -z "$DISABLE_ENHANCD" ]]; then
   zinit wait lucid light-mode for b4b4r07/enhancd
 fi
 
-# Vi-mode causes Tab completion issues - disabled by default
-# To enable, add to ~/.zshrc_local: zinit wait lucid light-mode for jeffreytse/zsh-vi-mode
+# Configure vi-mode before loading to preserve Tab completion
+zvm_after_init_commands+=('bindkey "^I" expand-or-complete')
+
+zinit wait lucid light-mode for \
+  jeffreytse/zsh-vi-mode
 
 # Place zsh-syntax-highlighting LAST for best performance
 zinit wait lucid light-mode for \
@@ -70,6 +74,10 @@ source ~/.zsh/aliases.zsh
 
 # Key bindings
 source ~/.zsh/key_bindings.zsh
+
+# Bind up/down arrows for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 #
 
