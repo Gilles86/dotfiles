@@ -77,9 +77,15 @@ source ~/.zsh/aliases.zsh
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
+# Configure history-substring-search to skip multi-line navigation
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
 # Bind up/down arrows for history substring search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# Also bind for vi mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 #
 
