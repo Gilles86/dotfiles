@@ -1,20 +1,14 @@
 # >>> conda initialize >>>
 # Minimal conda setup - avoid conda hook which has hardcoded old paths
 
-# Auto-detect conda installation location
-if [ -n "$CONDA_PREFIX" ]; then
-  CONDA_DIR="$CONDA_PREFIX"
-elif [ -d "$HOME/miniforge3" ]; then
-  CONDA_DIR="$HOME/miniforge3"
-elif [ -d "$HOME/mambaforge" ]; then
-  CONDA_DIR="$HOME/mambaforge"
-elif [ -d "$HOME/miniconda3" ]; then
-  CONDA_DIR="$HOME/miniconda3"
-elif [ -d "$HOME/anaconda3" ]; then
-  CONDA_DIR="$HOME/anaconda3"
-elif [ -d "/opt/conda" ]; then
-  CONDA_DIR="/opt/conda"
-fi
+# Auto-detect conda installation location - check which one actually has a binary
+CONDA_DIR=""
+for candidate in "$CONDA_PREFIX" "$HOME/mambaforge" "$HOME/miniforge3" "$HOME/miniconda3" "$HOME/anaconda3" "/opt/conda"; do
+  if [ -f "$candidate/bin/conda" ]; then
+    CONDA_DIR="$candidate"
+    break
+  fi
+done
 
 # Only initialize if conda binary exists
 if [ -f "$CONDA_DIR/bin/conda" ]; then
