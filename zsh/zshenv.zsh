@@ -1,9 +1,8 @@
 # Start with system default PATH, then prepend only needed user directories
-export PATH="$HOME/ants/bin:$HOME/.local/bin:$HOME/afni:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-export ANTSPATH="$HOME/ants/bin"
-
-# FreeSurfer environment variables (setup deferred for performance)
 export FREESURFER_HOME="$HOME/freesurfer"
+export FSLDIR="/usr/local/fsl"
+export PATH="$HOME/ants/bin:$HOME/.local/bin:$HOME/afni:$FREESURFER_HOME/bin:$FSLDIR/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export ANTSPATH="$HOME/ants/bin"
 export FS_LICENSE="$FREESURFER_HOME/license.txt"
 # Lazy-load FreeSurfer setup only when FreeSurfer commands are used
 if [ -f "$FREESURFER_HOME/SetUpFreeSurfer.sh" ]; then

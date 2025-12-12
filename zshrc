@@ -30,9 +30,9 @@ compinit
 # --- Plugins (converted from Antigen, fixed for zinit) ---
 # Use turbo mode (wait'0') to defer plugin loading for faster startup
 # Oh My Zsh plugins: use zinit snippet to source plugin scripts directly
-# Note: common-aliases removed - it overrides custom aliases like ll
 zinit wait lucid for \
-  OMZP::git
+  OMZP::git \
+  OMZP::common-aliases
 
 # Other plugins with turbo mode
 zinit wait lucid light-mode for \
@@ -73,7 +73,7 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL" 
 
 
-# Aliases (loaded after plugins so they don't get overridden)
+# Aliases
 source ~/.zsh/aliases.zsh
 
 # Key bindings
@@ -127,6 +127,9 @@ source ~/.zsh/conda.zsh
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+# Remove duplicate PATH entries - cluster systems add lots of redundant paths
+typeset -U PATH
 
 # >>> conda initialize >>>
 # Conda is now initialized via ~/.zsh/conda.zsh

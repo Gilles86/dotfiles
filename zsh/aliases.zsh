@@ -28,7 +28,8 @@ alias mv='mv -i'
 
 alias fslview="fsleyes"
 
-alias rsync_='rsync -aHxv --numeric-ids --progress -e "ssh -T -o Compression=no -x"'
+# alias rsync_='rsync -aHxv --numeric-ids --progress -e "ssh -T -o Compression=no -x"'
+alias rsync_='rsync -avh --numeric-ids --progress --delete -e "ssh -T -o Compression=no -x"'
 
 # SLURM job monitoring
 alias qme='squeue -u $USER --array -j --format="%.25i %.9P %.50j %.10u %.2t %.10M %.6D"'
