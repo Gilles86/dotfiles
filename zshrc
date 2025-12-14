@@ -31,8 +31,7 @@ compinit
 # Use turbo mode (wait'0') to defer plugin loading for faster startup
 # Oh My Zsh plugins: use zinit snippet to source plugin scripts directly
 zinit wait lucid for \
-  OMZP::git \
-  OMZP::common-aliases
+  OMZP::git
 
 # Other plugins with turbo mode
 zinit wait lucid light-mode for \
