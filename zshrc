@@ -73,9 +73,6 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL" 
 
 
-# Aliases
-source ~/.zsh/aliases.zsh
-
 # Key bindings
 source ~/.zsh/key_bindings.zsh
 
@@ -130,6 +127,9 @@ fi
 
 # Remove duplicate PATH entries - cluster systems add lots of redundant paths
 typeset -U PATH
+
+# Aliases (sourced last to override system defaults)
+source ~/.zsh/aliases.zsh
 
 # >>> conda initialize >>>
 # Conda is now initialized via ~/.zsh/conda.zsh
