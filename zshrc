@@ -56,6 +56,8 @@ zinit wait lucid light-mode for \
   jeffreytse/zsh-vi-mode
 
 # Place zsh-syntax-highlighting LAST for best performance
+# Disable alias caching to prevent overwriting custom aliases
+export ZSH_HIGHLIGHT_DISABLE_ALIASES_CHECKING=true
 zinit wait lucid light-mode for \
   zsh-users/zsh-syntax-highlighting
 
