@@ -41,15 +41,18 @@ zinit wait lucid light-mode for \
 # fzf-tab: fuzzy search for ALL tab completions (must load before compinit runs)
 zinit light Aloxaf/fzf-tab
 
-# Initialize zoxide (smart cd replacement) if installed
-# Use 'z' for jump and 'zz' for interactive (zi conflicts with zinit)
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh --cmd cd)"
-  alias zz='__zoxide_zi'
-fi
-
 # Configure vi-mode before loading to preserve Tab completion
-zvm_after_init_commands+=('bindkey "^I" expand-or-complete')
+zvm_after_init_commands+=('(( ${+functions[fzf-tab-complete]} )) && bindkey "^I" fzf-tab-complete || bindkey "^I" expand-or-complete')
+# Re-initialize zoxide after zsh-vi-mode so vi-mode can't clear its chpwd hook
+# _ZO_DOCTOR=0: suppress false-positive warning about init order (deferred init is intentional)
+export _ZO_DOCTOR=0
+if command -v zoxide >/dev/null 2>&1; then
+  zvm_after_init_commands+=('eval "$(zoxide init zsh --cmd cd)"; alias zz=__zoxide_zi')
+fi
+# Re-apply fzf key bindings after zsh-vi-mode resets them
+if command -v fzf >/dev/null 2>&1; then
+  zvm_after_init_commands+=('eval "$(fzf --zsh)"')
+fi
 
 zinit wait lucid light-mode for \
   jeffreytse/zsh-vi-mode
@@ -131,6 +134,17 @@ typeset -U PATH
 
 # Aliases (sourced last to override system defaults)
 source ~/.zsh/aliases.zsh
+
+# Initialize zoxide at end of config (fallback when zsh-vi-mode is not active)
+# zvm_after_init_commands handles the re-init after vi-mode; this covers the rest
+if command -v zoxide >/dev/null 2>&1 && [[ -z "${functions[__zoxide_z]}" ]]; then
+  eval "$(zoxide init zsh --cmd cd)"
+  alias zz='__zoxide_zi'
+fi
+# Initialize fzf at end of config (fallback when zsh-vi-mode is not active)
+if command -v fzf >/dev/null 2>&1 && [[ -z "${widgets[fzf-history-widget]}" ]]; then
+  eval "$(fzf --zsh)"
+fi
 
 # >>> conda initialize >>>
 # Conda is now initialized via ~/.zsh/conda.zsh
