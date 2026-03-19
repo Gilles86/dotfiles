@@ -33,6 +33,10 @@ compinit
 zinit wait lucid for \
   OMZP::git
 
+# ZSH_AUTOSUGGEST_MANUAL_REBIND prevents autosuggestions from rebinding all
+# widgets after every command, which causes excessive nesting with zsh-vi-mode.
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # Other plugins with turbo mode
 zinit wait lucid light-mode for \
   zsh-users/zsh-autosuggestions \
