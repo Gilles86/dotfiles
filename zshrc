@@ -139,6 +139,9 @@ typeset -U PATH
 # Aliases (sourced last to override system defaults)
 source ~/.zsh/aliases.zsh
 
+# Cluster + Snakemake monitoring helpers. Type `snake-help` for the list.
+source ~/.zsh/cluster_snakemake.zsh
+
 # Initialize zoxide at end of config (fallback when zsh-vi-mode is not active)
 # zvm_after_init_commands handles the re-init after vi-mode; this covers the rest
 if command -v zoxide >/dev/null 2>&1 && [[ -z "${functions[__zoxide_z]}" ]]; then
