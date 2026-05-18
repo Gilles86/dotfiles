@@ -7,8 +7,10 @@
 # Repo on cluster: `~/git/retsupp` (adjust REPO env var if you want
 # to point these at a different project that also uses Snakemake).
 
-: ${SNAKE_REPO:=~/git/retsupp}
-: ${SNAKE_HOST:=sciencecluster}
+# SNAKE_REPO is a *remote* path. Use a literal $HOME so the remote bash
+# expands it on the cluster side (NOT zsh on the local Mac).
+SNAKE_REPO="${SNAKE_REPO:-\$HOME/git/retsupp}"
+SNAKE_HOST="${SNAKE_HOST:-sciencecluster}"
 
 # --- one-shot status snapshot -------------------------------------------
 # Driver state + progress %, in-flight jobs by rule, completed-last-hour.
