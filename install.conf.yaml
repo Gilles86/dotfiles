@@ -4,20 +4,38 @@
 
 - clean: ['~']
 
+# Submodules first: the links below point into tmux-sensible.
 - shell:
-
-  - [chsh -s $(which zsh) 2>/dev/null || echo "Note: Could not change default shell to zsh (this is normal on some systems)", Making zsh the default shell]
-  - [git submodule update --init --recursive, Installing submodules]
-  - [claude-private/install.sh || true, Linking private ~/.claude config]
-  - [vim +PlugInstall +qall , Installing Vim plugins]
-  - [curl -L git.io/antigen > zsh/antigen.zsh, installing antigen]
-  - [bash install_fzf.sh, Installing fzf for interactive features]
-  - [bash install_zoxide.sh, Installing zoxide for smart directory jumping]
+  - command: git submodule update --init --recursive dotbot tmux-sensible
+    description: Installing public submodules
+  - command: >
+      git submodule update --init --recursive claude-private 2>/dev/null
+      && claude-private/install.sh
+      || echo "  skipped private ~/.claude config (no SSH access to the private repo)"
+    description: Linking private ~/.claude config
 
 - link:
+    # NOTE: gitconfig / gitignore_global are deliberately NOT linked. The live
+    # ~/.gitconfig on the laptop has diverged (delta pager, pull.rebase, datalad)
+    # and the tracked one is a stale 2022 template; linking it would be a
+    # regression, and `pager = delta` breaks git on machines without delta.
+    ~/.p10k.zsh: p10krc
     ~/.tmux.conf: tmux.conf
+    ~/.tmux-sensible: tmux-sensible
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.zsh: zsh
     ~/.zshrc: zshrc
-    ~/.p10k.zsh: p10krc
+
+- shell:
+  # Skipped when zsh is already the login shell, so re-runs never block on a
+  # password prompt. Passwordless sudo is preferred where available; plain chsh
+  # gets /dev/null on stdin so it fails fast instead of hanging.
+  - command: 'if [ "$(basename "${SHELL:-}")" != zsh ] && command -v zsh >/dev/null; then sudo -n chsh -s "$(command -v zsh)" "$USER" 2>/dev/null || chsh -s "$(command -v zsh)" </dev/null 2>/dev/null || echo "  could not change login shell; run chsh by hand"; fi'
+    description: Making zsh the default shell
+  - command: command -v vim >/dev/null && vim +PlugInstall +qall || echo "  vim not installed, skipping plugins"
+    description: Installing Vim plugins
+  - command: bash install_fzf.sh
+    description: Installing fzf for interactive features
+  - command: bash install_zoxide.sh
+    description: Installing zoxide for smart directory jumping

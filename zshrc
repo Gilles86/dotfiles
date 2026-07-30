@@ -1,3 +1,7 @@
+# Attach to tmux on interactive SSH logins (opt-in via ~/.tmux_autostart).
+# First, so the outer shell execs away before paying for any of the setup below.
+source ~/.zsh/tmux_autostart.zsh
+
 # Zsh history configuration (robust)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000

@@ -1,1 +1,0 @@
-/Users/gdehol/dotfiles/zsh/
